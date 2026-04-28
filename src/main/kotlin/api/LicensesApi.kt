@@ -2,7 +2,9 @@ package api
 
 import config.HeaderMode
 import config.HeaderMode.Valid
+import config.HttpClientFactory
 import config.applyTestHeaders
+import io.ktor.client.*
 import io.ktor.client.call.*
 import io.ktor.client.request.*
 import io.ktor.client.statement.*
@@ -15,7 +17,7 @@ import model.licenses.customerLicensesAssign.LicensesAssignRequest
 import model.licenses.customerLicensesAssign.LicensesAssignResponse
 import org.slf4j.LoggerFactory
 
-class LicensesApi : BaseApi() {
+class LicensesApi(private val client: HttpClient = HttpClientFactory.client) : BaseApi() {
 
     private val log = LoggerFactory.getLogger(javaClass)
 

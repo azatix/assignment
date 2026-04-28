@@ -1,7 +1,6 @@
 package changeLicensesTeam
 
 import BaseTest
-import api.LicensesApi
 import config.HeaderMode.Valid
 import data.TestConstants.InvalidData.INVALID_LICENSES_LIST
 import data.TestConstants.LicensesIds.EMPTY_LICENSES_LIST
@@ -34,8 +33,6 @@ import kotlin.test.assertTrue
 class ChangeLicensesTeamPositiveTests : BaseTest() {
 
     private val log = LoggerFactory.getLogger(javaClass)
-
-    private val licensesApi = LicensesApi()
 
     @Test
     @Description("Test /customer/changeLicensesTeam endpoint with invalid list of licenses")

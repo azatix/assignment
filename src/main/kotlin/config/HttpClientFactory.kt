@@ -15,10 +15,8 @@ private const val API_KEY = "X-Api-Key"
 
 object HttpClientFactory {
 
-    val client = create()
-
-    private fun create(): HttpClient {
-        return HttpClient(CIO) {
+    val client: HttpClient by lazy {
+        HttpClient(CIO) {
             expectSuccess = false
 
             install(ContentNegotiation) {
@@ -39,10 +37,6 @@ object HttpClientFactory {
                 }
             }
         }
-    }
-
-    fun close() {
-        client.close()
     }
 }
 

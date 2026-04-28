@@ -1,7 +1,6 @@
 package licensesAssign
 
 import BaseTest
-import api.LicensesApi
 import config.HeaderMode.Valid
 import data.LicensesAssignRequestFactory
 import data.TestConstants.LicensesIds.LICENSE_TO_ASSIGN_TWO
@@ -19,8 +18,6 @@ import kotlin.test.assertEquals
 class LicensesAssignPositiveTests : BaseTest() {
 
     private val log = LoggerFactory.getLogger(javaClass)
-
-    private val licensesApi = LicensesApi()
 
     @Test
     @Description("Test /customer/licenses/assign with full default request")

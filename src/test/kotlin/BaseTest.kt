@@ -1,14 +1,6 @@
-import config.HttpClientFactory
-import org.junit.jupiter.api.AfterAll
+import api.LicensesApi
 
 open class BaseTest {
 
-    companion object {
-
-        @JvmStatic
-        @AfterAll
-        fun tearDown() {
-            HttpClientFactory.close()
-        }
-    }
+    protected val licensesApi = LicensesApi()
 }

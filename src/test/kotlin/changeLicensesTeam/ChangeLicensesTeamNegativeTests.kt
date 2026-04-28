@@ -1,7 +1,6 @@
 package changeLicensesTeam
 
 import BaseTest
-import api.LicensesApi
 import config.HeaderMode.Invalid
 import config.HeaderMode.Missing
 import config.HeaderMode.Valid
@@ -30,8 +29,6 @@ import kotlin.test.assertEquals
 class ChangeLicensesTeamNegativeTests : BaseTest() {
 
     private val log = LoggerFactory.getLogger(javaClass)
-
-    private val licensesApi = LicensesApi()
 
     @Test
     @Description("Test /customer/changeLicensesTeam endpoint with invalid token and customer code")
@@ -111,8 +108,8 @@ class ChangeLicensesTeamNegativeTests : BaseTest() {
     @Description("Test /customer/changeLicensesTeam with invalid Team value")
     fun changeLicensesTeam_whenTeamIsInvalid_shouldReturnTeamNotFound() = runTest {
 
-        log.info("Preparing request with licenses $MULTIPLE_LICENSES_LIST and invalid team $INVALID_TEAM")
-        val request = ChangeLicensesTeamRequest(MULTIPLE_LICENSES_LIST)
+        log.info("Preparing request with licenses and invalid team $INVALID_TEAM")
+        val request = ChangeLicensesTeamRequest(licenseIds = MULTIPLE_LICENSES_LIST, targetTeamId = INVALID_TEAM)
 
         log.info("Making request with invalid team value")
         val response = licensesApi.customerChangeLicensesTeam(

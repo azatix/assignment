@@ -1,7 +1,6 @@
 package licensesAssign
 
 import BaseTest
-import api.LicensesApi
 import config.HeaderMode.Invalid
 import config.HeaderMode.Valid
 import data.LicensesAssignRequestFactory
@@ -34,8 +33,6 @@ import kotlin.test.assertEquals
 class LicensesAssignNegativeTests : BaseTest() {
 
     private val log = LoggerFactory.getLogger(javaClass)
-
-    private val licensesApi = LicensesApi()
 
     @Test
     @Description("Test /customer/licenses/assign endpoint with invalid token and customer code")
